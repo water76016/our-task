@@ -19,7 +19,6 @@
     </properties>
 
     <dependencies>
-
 <!--        SpringBoot通用依赖模块-->
         <dependency>
             <groupId>org.springframework.boot</groupId>

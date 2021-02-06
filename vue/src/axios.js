@@ -4,7 +4,7 @@ import store from './store'
 import router from './router'
 // 访问地址
 axios.defaults.baseURL = 'http://localhost:8888'
-axios.defaults.headers.common['Authorization'] = localStorage.getItem('token')
+// axios.defaults.headers.common['Authorization'] = localStorage.getItem('token')
 axios.interceptors.request.use(config => {
   console.log('前置拦截')
   // 可以统一设置请求头

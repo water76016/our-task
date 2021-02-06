@@ -128,6 +128,8 @@ export default {
             const jwt = res.headers['authorization']
             this.$store.dispatch('user/login', this.loginForm).then(() => {
               _this.$store.commit('SET_TOKEN', jwt)
+              // 登录之后，给axios统一设置头部token信息
+              this.$axios.defaults.headers.common['Authorization'] = localStorage.getItem('token')
               this.$router.push({ path: this.redirect || '/' })
               this.loading = false
             })

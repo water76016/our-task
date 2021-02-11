@@ -63,6 +63,9 @@ public class TaskController {
     @ApiOperation("逻辑删除/完成一个清单")
     @GetMapping("/delete/{id}")
     public RestResult deleteTaskById(@PathVariable("id") @ApiParam("清单id") Integer id){
+        if (id == null){
+            return RestResult.errorParams("用户id输入为空");
+        }
         Task task = taskService.getById(id);
         if (task == null){
             return new RestResult(ResultCode.MOVED_PERM.getCode(), "资源已被移除");

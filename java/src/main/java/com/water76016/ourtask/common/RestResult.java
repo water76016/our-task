@@ -144,4 +144,15 @@ public class RestResult extends HashMap<String, Object>
     {
         return new RestResult(code, msg, null);
     }
+
+    /**
+     * 请求参数错误
+     * @param msg 错误消息
+     * @return 警告消息
+     */
+    public static RestResult errorParams(String msg){
+        return new RestResult(ResultCode.BAD_REQUEST.getCode(), msg, null);
+    }
+
+
 }

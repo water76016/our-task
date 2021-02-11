@@ -26,6 +26,7 @@ public class UserController {
 
     @Autowired
     CategoryService categoryService;
+
     @Autowired
     TaskService taskService;
 

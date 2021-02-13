@@ -1,5 +1,6 @@
 package com.water76016.ourtask.controller;
 
+import cn.hutool.core.util.StrUtil;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
@@ -41,14 +42,16 @@ public class CategoryController {
     @ApiOperation("添加一个新的分类")
     @PostMapping("add")
     public RestResult add(@RequestBody @ApiParam("新增分类对象") Category category){
+        if (category.getUserId() == null){
+            return RestResult.errorParams("新增分类对象：传入用户id不能为空");
+        }
+        if (StrUtil.isEmpty(category.getName())){
+            return RestResult.errorParams("新增分类对象：传入分类名不能为空");
+        }
         boolean flag = categoryService.save(category);
         if (flag){
-            logger.debug("添加分类成功" + category);
-            logger.info("添加分类成功" + category);
             return RestResult.success(category);
         }
-        logger.debug("添加分类失败" + category);
-        logger.info("添加分类失败" + category);
         return RestResult.error();
     }
 
@@ -56,6 +59,10 @@ public class CategoryController {
     @GetMapping("delete/{id}/{userId}")
     public RestResult delete(@PathVariable("id") @ApiParam("分类id") Integer id,
                              @PathVariable("userId") @ApiParam("用户id") Integer userId){
+        if (id == null){
+            return RestResult.errorParams("分类id不能为空");
+        }
+
         boolean flag = categoryService.removeById(id, userId);
         return flag ? RestResult.success() : RestResult.error("该分类下还有未完成的清单，不能删除");
     }

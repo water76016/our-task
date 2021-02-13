@@ -34,6 +34,9 @@ public class AdminController {
     @ApiOperation("管理员冻结一个用户")
     @GetMapping("/freezeUser/{id}")
     public RestResult freezeUserById(@PathVariable @ApiParam("用户id") Integer id){
+        if (id == null){
+            return RestResult.errorParams("用户id为空");
+        }
         User user = userService.getById(id);
         user.setStatus(0);
         boolean flag = userService.updateById(user);
@@ -50,8 +53,11 @@ public class AdminController {
     @ApiOperation("查询所有冻结/未冻结的用户信息")
     @GetMapping("listUser/{status}")
     public RestResult listUserByStatus(@PathVariable @ApiParam("传入用户状态") Integer status){
+        if (status == null){
+            return RestResult.errorParams("传入用户状态为空");
+        }
         if (status != 0 && status != 1){
-            return RestResult.error("错误的传值");
+            return RestResult.errorParams("传入的用户状态只能为0或1");
         }
         Map<String, Object> map = new HashMap<>(5);
         map.put("status", status);

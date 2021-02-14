@@ -1,6 +1,7 @@
 package com.water76016.ourtask.controller;
 
 
+import cn.hutool.core.util.StrUtil;
 import com.water76016.ourtask.common.RestResult;
 import com.water76016.ourtask.entity.Category;
 import com.water76016.ourtask.entity.Feedback;
@@ -29,6 +30,15 @@ public class FeedbackController {
     @ApiOperation("增加一条反馈信息")
     @PostMapping("add")
     public RestResult add(@RequestBody @ApiParam("反馈对象") Feedback feedback){
+        if (feedback.getUserId() == null){
+            return RestResult.errorParams("反馈用户id不能为空");
+        }
+        if (StrUtil.isEmpty(feedback.getTitle())){
+            return RestResult.errorParams("反馈标题不能为空");
+        }
+        if (StrUtil.isEmpty(feedback.getDescription())){
+            return RestResult.errorParams("反馈描述不能为空");
+        }
         boolean flag = feedbackService.save(feedback);
         return flag ? RestResult.success() : RestResult.error();
     }

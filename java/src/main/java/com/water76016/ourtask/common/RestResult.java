@@ -154,5 +154,13 @@ public class RestResult extends HashMap<String, Object>
         return new RestResult(ResultCode.BAD_REQUEST.getCode(), msg, null);
     }
 
+    /**
+     *
+     * @return 成功消息
+     */
+    public static RestResult noContentSuccess(){
+        return new RestResult(ResultCode.NO_CONTENT.getCode(), "操作已经执行成功，但是没有返回数据", null);
+    }
+
 
 }

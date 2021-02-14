@@ -100,7 +100,7 @@ export default {
         inputErrorMessage: '长度不能超过6个字符或不能存在空格'
       }).then(({ value }) => {
         label.name = value
-        this.$axios.post(`label/update/${label.id}`, label).then((res) => {
+        this.$axios.post('label/update', label).then((res) => {
           this.success('标签名修改成功: ' + value)
         })
       }).catch(() => {

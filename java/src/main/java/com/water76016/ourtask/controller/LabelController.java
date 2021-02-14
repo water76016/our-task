@@ -1,6 +1,7 @@
 package com.water76016.ourtask.controller;
 
 
+import cn.hutool.core.util.StrUtil;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
@@ -41,10 +42,16 @@ public class LabelController {
     @ApiOperation("查询当前用户的所有标签")
     @GetMapping("listAll/{userId}")
     public RestResult getAllList(@PathVariable("userId") @ApiParam("用户id") Integer userId){
+        if (userId == null){
+            return RestResult.errorParams("用户id不能为空");
+        }
         QueryWrapper<Label> queryWrapper = new QueryWrapper<>();
         queryWrapper.eq("user_id", userId);
         queryWrapper.eq("run", 1);
         List<Label> labelList = labelService.list(queryWrapper);
+        if (labelList == null || labelList.size() == 0){
+            return RestResult.noContentSuccess();
+        }
         List<LabelParam> labelParamList = new ArrayList<>();
         for (Label label : labelList){
             int labelId = label.getId();
@@ -60,14 +67,22 @@ public class LabelController {
     @ApiOperation("逻辑删除/完成一个标签")
     @GetMapping("/delete/{id}")
     public RestResult deleteLabelById(@PathVariable("id") @ApiParam("标签id") Integer id){
+        if (id == null){
+            return RestResult.errorParams("标签id不能为空");
+        }
         boolean flag = labelService.removeById(id);
         return flag ? RestResult.success() : RestResult.error();
     }
 
     @ApiOperation("修改标签的名称")
     @PostMapping("update/{id}")
-    public RestResult update(@PathVariable("id") @ApiParam("标签id") Integer id,
-                             @RequestBody @ApiParam("标签对象") Label label){
+    public RestResult update(@RequestBody @ApiParam("标签对象") Label label){
+        if (label.getUserId() == null){
+            return RestResult.errorParams("用户id不能为空");
+        }
+        if (StrUtil.isEmpty(label.getName())){
+            return RestResult.errorParams("标签名不能为空");
+        }
         boolean flag = labelService.updateById(label);
         return flag ? RestResult.success() : RestResult.error();
     }

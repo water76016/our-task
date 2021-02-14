@@ -69,8 +69,13 @@ public class CategoryController {
 
     @ApiOperation("修改分类的名称")
     @PostMapping("update/{id}")
-    public RestResult update(@PathVariable("id") @ApiParam("分类id") Integer id,
-                             @RequestBody @ApiParam("分类对象") Category category){
+    public RestResult update(@RequestBody @ApiParam("分类对象") Category category){
+        if (category.getId() == null){
+            return RestResult.errorParams("分类id不能为空");
+        }
+        if (StrUtil.isEmpty(category.getName())){
+            return RestResult.errorParams("分类名不能为空");
+        }
         boolean flag = categoryService.updateById(category);
         return flag ? RestResult.success() : RestResult.error();
     }
@@ -78,9 +83,12 @@ public class CategoryController {
     @ApiOperation("查询当前用户的所有分类")
     @GetMapping("listAll/{userId}")
     public RestResult listAll(@PathVariable("userId") @ApiParam("用户id") Integer userId){
+        if (userId == null){
+            return RestResult.errorParams("用户id不能为空");
+        }
         List<Map<String, Object>> categoryList = categoryService.list(userId);
         if (categoryList == null){
-            return RestResult.error();
+            return RestResult.noContentSuccess();
         }
         //根据分类列表,设置分类传输对象列表
         List<CategoryParam> categoryParamList = taskService.getCategoryParamList(categoryList);
@@ -90,6 +98,9 @@ public class CategoryController {
     @ApiOperation("根据分类id查询分类对象")
     @GetMapping("get/{categoryId}")
     public RestResult getCategoryById(@PathVariable("categoryId") @ApiParam("分类id") String categoryId){
+        if (StrUtil.isEmpty(categoryId)){
+            return RestResult.errorParams("分类id不能为空");
+        }
         Category result = categoryService.getById(Integer.valueOf(categoryId));
         return result != null ? RestResult.success(result) : RestResult.error();
     }
@@ -99,6 +110,15 @@ public class CategoryController {
     public RestResult getPageList(@PathVariable("userId") @ApiParam("用户id") Integer userId,
                                   @PathVariable("pageCurrent") @ApiParam("当前页") Integer pageCurrent,
                                   @PathVariable("pageSize") @ApiParam("每页大小") Integer pageSize){
+        if (userId == null){
+            return RestResult.errorParams("用户id不能为空");
+        }
+        if (pageCurrent == null || pageCurrent == 0){
+            return RestResult.errorParams("当前页不能为空或当前页不能为0");
+        }
+        if (pageSize == null || pageSize == 0){
+            return RestResult.errorParams("每页大小不能为空或每页大小不能为0");
+        }
         QueryWrapper<Category> queryWrapper = new QueryWrapper<>();
         queryWrapper.eq("user_id", userId);
         queryWrapper.eq("run", 1);

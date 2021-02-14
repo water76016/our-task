@@ -101,7 +101,7 @@ export default {
         inputErrorMessage: '长度不能超过6个字符或不能存在空格'
       }).then(({ value }) => {
         category.name = value
-        this.$axios.post(`category/update/${category.id}`, category).then((res) => {
+        this.$axios.post('category/update', category).then((res) => {
           this.success('分类名修改成功:' + value)
         })
       }).catch(() => {

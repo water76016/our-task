@@ -18,6 +18,8 @@ import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.RestClientResponseException;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -90,6 +92,12 @@ public class LabelController {
     @ApiOperation("添加一个新的标签")
     @PostMapping("add")
     public RestResult add(@RequestBody @ApiParam("标签对象") Label label){
+        if (label.getUserId() == null){
+            return RestResult.errorParams("用户id不能为空");
+        }
+        if (StrUtil.isEmpty(label.getName())){
+            return RestResult.errorParams("标签名不能为空");
+        }
         boolean flag = labelService.save(label);
         return flag ? RestResult.success(label) : RestResult.error();
     }
@@ -99,6 +107,15 @@ public class LabelController {
     public RestResult getPageList(@PathVariable("userId") @ApiParam("用户id") Integer userId,
                                   @PathVariable("pageCurrent") @ApiParam("当前页") Integer pageCurrent,
                                   @PathVariable("pageSize") @ApiParam("每页大小") Integer pageSize){
+        if (userId == null){
+            return RestResult.errorParams("用户id不能为空");
+        }
+        if (pageCurrent == null || pageCurrent == 0){
+            return RestResult.errorParams("当前页不能为空或当前页不能为0");
+        }
+        if (pageSize == null || pageSize == 0){
+            return RestResult.errorParams("每页大小不能为空或每页大小不能为0");
+        }
         QueryWrapper<Label> queryWrapper = new QueryWrapper<>();
         queryWrapper.eq("user_id", userId);
         queryWrapper.eq("run", 1);

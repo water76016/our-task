@@ -162,5 +162,9 @@ public class RestResult extends HashMap<String, Object>
         return new RestResult(ResultCode.NO_CONTENT.getCode(), "操作已经执行成功，但是没有返回数据", null);
     }
 
+    public static RestResult notFindError(String message){
+        return new RestResult(ResultCode.NOT_FOUND.getCode(), message, null);
+    }
+
 
 }

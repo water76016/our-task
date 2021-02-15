@@ -1,6 +1,8 @@
 package com.water76016.ourtask.controller;
 
+import cn.hutool.core.util.StrUtil;
 import com.water76016.ourtask.common.RestResult;
+import com.water76016.ourtask.common.Utils;
 import com.water76016.ourtask.entity.User;
 import com.water76016.ourtask.service.CategoryService;
 import com.water76016.ourtask.service.TaskService;
@@ -32,8 +34,13 @@ public class UserController {
 
     @ApiOperation("修改用户基本信息")
     @PostMapping("update/{id}")
-    public RestResult update(@PathVariable("id") @ApiParam("用户id") Integer id,
-                             @RequestBody @ApiParam("用户对象") User user){
+    public RestResult update(@RequestBody @ApiParam("用户对象") User user){
+        if (StrUtil.isEmpty(user.getUsername())){
+            return RestResult.errorParams("用户名不能为空");
+        }
+        if (StrUtil.isEmpty(user.getPassword())){
+            return RestResult.errorParams("用户密码不能为空");
+        }
         boolean flag = userService.updateById(user);
         return flag ? RestResult.success() : RestResult.error();
     }
@@ -42,6 +49,9 @@ public class UserController {
     @GetMapping("/get/{id}")
     public RestResult get(@PathVariable @ApiParam("用户id") Integer id){
         User user = userService.getById(id);
+        if (user == null){
+            return RestResult.notFindError("该用户不存在");
+        }
         return RestResult.success(user);
     }
 
@@ -50,13 +60,24 @@ public class UserController {
     public RestResult updatePassword(@PathVariable("id") @ApiParam("用户id") Integer id,
                                      @ApiParam("旧密码") String oldPassword,
                                      @ApiParam("新密码") String newPassword){
+        if (id == null){
+            return RestResult.errorParams("用户id为空");
+        }
+        if (StrUtil.isEmpty(oldPassword)){
+            return RestResult.errorParams("旧密码不能为空");
+        }
+        if (StrUtil.isEmpty(newPassword)){
+            return RestResult.errorParams("新密码不能为空");
+        }
         //先判断用户名和密码是否匹配
-        BCryptPasswordEncoder bcp = new BCryptPasswordEncoder();
         User user = userService.getById(id);
-        if (bcp.matches(oldPassword, user.getPassword()) == false){
+        if (user == null){
+            return RestResult.notFindError("该用户不存在");
+        }
+        if (Utils.matches(oldPassword, user.getPassword()) == false){
             return RestResult.error("用户名和密码不匹配");
         }
-        String password = bcp.encode(newPassword);
+        String password = Utils.encode(newPassword);
         user.setPassword(password);
         boolean flag = userService.updateById(user);
         return flag ? RestResult.success() : RestResult.error();

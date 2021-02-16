@@ -1,5 +1,6 @@
 package com.water76016.ourtask.dto;
 
+import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -16,16 +17,13 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class SelectCondition {
-    /**
-     * 查询名称
-     * */
+
+    @ApiModelProperty("查询名称")
     String name;
-    /**
-     * 查询分类id
-     * */
+
+    @ApiModelProperty("查询分类id")
     Integer categoryId;
-    /**
-     * 查询标签id列表
-     * */
+
+    @ApiModelProperty("查询标签id列表")
     List<Integer> labelIdList;
 }

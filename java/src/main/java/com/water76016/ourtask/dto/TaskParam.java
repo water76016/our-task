@@ -19,8 +19,10 @@ import java.util.List;
 public class TaskParam {
     @ApiModelProperty("清单id")
     Integer id;
+
     @ApiModelProperty("用户id")
     Integer userId;
+
     @ApiModelProperty("分类id")
     Integer categoryId;
 

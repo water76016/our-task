@@ -1,5 +1,6 @@
 package com.water76016.ourtask.dto;
 
+import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -14,20 +15,15 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Statistics {
-    /**
-     * 已完成清单
-     * */
+    @ApiModelProperty("已完成清单")
     Integer totalFinished;
-    /**
-     * 待完成清单
-     * */
+
+    @ApiModelProperty("待完成清单")
     Integer unFinished;
-    /**
-     * 上周完成清单
-     * */
+
+    @ApiModelProperty("上周完成清单")
     Integer weekFinished;
-    /**
-     * 上个月完成清单
-     * */
+
+    @ApiModelProperty("上个月完成清单")
     Integer monthFinished;
 }

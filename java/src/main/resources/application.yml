@@ -46,17 +46,14 @@ spring:
         min-idle: 0
     # 连接超时时间（毫秒）
     timeout: 3000ms
-#  mail:
-#    host: host地址（可以在你的邮箱设置里找到）
-#    password:  密码
-#    username: 邮箱账号
-#    port: 端口号
-#    test-connection: true
-#    protocol: 类型（默认smtp）
-#    default-encoding: UTF-8
-#    properties:
-#      mail.smtp.socketFactory.fallback: true
-#      mail.smtp.starttls.enable: true
+  mail:
+    host: pop3.163.com
+    username: dxylovelq@163.com
+    password: SJPLBCHBKHIIQCLF
+    default-encoding: UTF-8
+# 邮件发件人
+mail:
+  from: dxylovelq@163.com
 
 mybatis-plus:
   global-config:

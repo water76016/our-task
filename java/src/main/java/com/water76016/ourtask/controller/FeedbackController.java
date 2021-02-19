@@ -6,6 +6,7 @@ import com.water76016.ourtask.common.RestResult;
 import com.water76016.ourtask.entity.Category;
 import com.water76016.ourtask.entity.Feedback;
 import com.water76016.ourtask.service.FeedbackService;
+import com.water76016.ourtask.service.MailService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
@@ -27,6 +28,9 @@ public class FeedbackController {
     @Autowired
     FeedbackService feedbackService;
 
+    @Autowired
+    MailService mailService;
+
     @ApiOperation("增加一条反馈信息")
     @PostMapping("add")
     public RestResult add(@RequestBody @ApiParam("反馈对象") Feedback feedback){
@@ -40,6 +44,9 @@ public class FeedbackController {
             return RestResult.errorParams("反馈描述不能为空");
         }
         boolean flag = feedbackService.save(feedback);
+        if (flag){
+            mailService.sendSimpleMail(feedback);
+        }
         return flag ? RestResult.success() : RestResult.error();
     }
 }

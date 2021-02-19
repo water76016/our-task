@@ -47,10 +47,18 @@ spring:
     # 连接超时时间（毫秒）
     timeout: 3000ms
   mail:
-    host: pop3.163.com
+    host: smtp.163.com
     username: dxylovelq@163.com
     password: SJPLBCHBKHIIQCLF
     default-encoding: UTF-8
+    protocol: smtp
+    properties:
+      mail.smtp.auth: true
+      mail.smtp.starttls.enable: true
+      mail.smtp.starttls.required: true
+      mail.smtp.socketFactory.port: 465
+      mail.smtp.socketFactory.class: javax.net.ssl.SSLSocketFactory
+      mail.smtp.socketFactory.fallback: false
 # 邮件发件人
 mail:
   from: dxylovelq@163.com

@@ -68,7 +68,7 @@ public class CategoryController {
     }
 
     @ApiOperation("修改分类的名称")
-    @PostMapping("update/{id}")
+    @PostMapping("update")
     public RestResult update(@RequestBody @ApiParam("分类对象") Category category){
         if (category.getId() == null){
             return RestResult.errorParams("分类id不能为空");

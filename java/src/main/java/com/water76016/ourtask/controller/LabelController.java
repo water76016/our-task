@@ -77,7 +77,7 @@ public class LabelController {
     }
 
     @ApiOperation("修改标签的名称")
-    @PostMapping("update/{id}")
+    @PostMapping("update")
     public RestResult update(@RequestBody @ApiParam("标签对象") Label label){
         if (label.getUserId() == null){
             return RestResult.errorParams("用户id不能为空");

@@ -11,5 +11,6 @@ redis:
     category: "category"
     user: "user"
     task: "task"
+    label: "label"
   expire:
-    common: 43200 # 12小时
+    common: 86400 # 24小时

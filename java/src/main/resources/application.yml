@@ -48,8 +48,9 @@ spring:
     timeout: 3000ms
   mail:
     host: smtp.163.com
+    # 在使用时，username和password一定要修改为自己的，否则发送邮件功能无法使用，不影响其他功能
     username: dxylovelq@163.com
-    password: SJPLBCHBKHIIQCLF
+    password:
     default-encoding: UTF-8
     protocol: smtp
     properties:

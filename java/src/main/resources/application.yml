@@ -72,11 +72,7 @@ mybatis-plus:
       # 逻辑未删除值
       logic-not-delete-value: 1
   mapper-locations: classpath*:/mapper/**Mapper.xml
-
-shiro-redis:
-  enabled: true
-  redis-manager:
-    host: 127.0.0.1:6379
+# token令牌
 token:
   # 令牌自定义标识
   header: Authorization

@@ -85,3 +85,8 @@ server:
   port: 8888
 logging:
   config: classpath:logback-spring.xml
+# 取消邮件的健康检查机制，不让其报错，又很好地保护了个人的SMTP码泄漏
+management:
+  health:
+    mail:
+      enabled: false

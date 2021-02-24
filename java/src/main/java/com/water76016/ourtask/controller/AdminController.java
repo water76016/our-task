@@ -31,14 +31,18 @@ public class AdminController {
     @Autowired
     UserService userService;
 
-    @ApiOperation("管理员冻结一个用户")
-    @GetMapping("/freezeUser/{id}")
-    public RestResult freezeUserById(@PathVariable @ApiParam("用户id") Integer id){
+    @ApiOperation("管理员冻结/解冻一个用户")
+    @GetMapping("/freezeUser/{id}/{status}")
+    public RestResult freezeUserById(@PathVariable @ApiParam("用户id") Integer id,
+                                     @PathVariable @ApiParam("用户id") Integer status){
         if (id == null){
             return RestResult.errorParams("用户id为空");
         }
+        if (status != 0 || status != 1){
+            return RestResult.errorParams("用户状态只能为0或者1");
+        }
         User user = userService.getById(id);
-        user.setStatus(0);
+        user.setStatus(status);
         boolean flag = userService.updateById(user);
         return flag ? RestResult.success() : RestResult.error();
     }

@@ -11,7 +11,7 @@
  Target Server Version : 80019
  File Encoding         : 65001
 
- Date: 09/12/2020 15:16:26
+ Date: 26/02/2021 16:44:26
 */
 
 SET NAMES utf8mb4;
@@ -29,7 +29,7 @@ CREATE TABLE `category`  (
   `update_time` datetime(0) NULL DEFAULT NULL COMMENT '修改时间',
   `run` tinyint(0) UNSIGNED NULL DEFAULT 1 COMMENT '是否被删除',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 128 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 153 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of category
@@ -79,13 +79,31 @@ INSERT INTO `category` VALUES (124, 1, '33', '2020-12-05 23:00:44', '2020-12-05 
 INSERT INTO `category` VALUES (125, 1, '测试', '2020-12-05 23:14:12', '2020-12-05 23:14:12', 0);
 INSERT INTO `category` VALUES (126, 1, '测试', '2020-12-06 20:59:55', '2020-12-06 20:59:55', 0);
 INSERT INTO `category` VALUES (127, 1, '测试', '2020-12-06 21:00:55', '2020-12-06 21:00:55', 0);
-INSERT INTO `category` VALUES (128, 1, '今天', '2020-12-09 13:50:59', '2020-12-09 13:50:59', 1);
+INSERT INTO `category` VALUES (128, 1, '今天', '2020-12-09 13:50:59', '2020-12-09 13:50:59', 0);
 INSERT INTO `category` VALUES (129, 1, '明天', '2020-12-09 13:51:05', '2020-12-09 13:51:05', 1);
-INSERT INTO `category` VALUES (130, 1, '后天', '2020-12-09 13:51:09', '2020-12-09 13:51:09', 1);
-INSERT INTO `category` VALUES (131, 1, '最近七天', '2020-12-09 13:51:13', '2020-12-09 13:51:13', 1);
+INSERT INTO `category` VALUES (130, 1, '大后天', '2020-12-09 13:51:09', '2020-12-11 16:16:56', 0);
+INSERT INTO `category` VALUES (131, 1, '今天', '2020-12-09 13:51:13', '2020-12-11 16:48:36', 1);
 INSERT INTO `category` VALUES (132, 1, '重要且紧急', '2020-12-09 13:51:18', '2020-12-09 13:51:18', 1);
-INSERT INTO `category` VALUES (133, 1, '重要不紧急', '2020-12-09 13:51:22', '2020-12-09 13:51:22', 1);
-INSERT INTO `category` VALUES (134, 1, '测试', '2020-12-09 14:55:58', '2020-12-09 14:55:58', 1);
+INSERT INTO `category` VALUES (133, 1, '最近', '2020-12-09 13:51:22', '2020-12-14 14:34:12', 0);
+INSERT INTO `category` VALUES (134, 1, '测试', '2020-12-09 14:55:58', '2020-12-09 14:55:58', 0);
+INSERT INTO `category` VALUES (135, 1, '购物', '2020-12-11 15:03:52', '2020-12-11 15:03:52', 0);
+INSERT INTO `category` VALUES (136, 1, '滴答', '2020-12-11 15:39:45', '2020-12-11 15:39:45', 0);
+INSERT INTO `category` VALUES (137, 1, '滴答', '2020-12-11 15:40:30', '2020-12-11 15:40:30', 0);
+INSERT INTO `category` VALUES (138, 1, '滴答', '2020-12-11 15:41:42', '2020-12-11 15:41:42', 0);
+INSERT INTO `category` VALUES (139, 1, '测试', '2020-12-11 16:17:20', '2020-12-11 16:17:20', 0);
+INSERT INTO `category` VALUES (140, 1, '测试', '2020-12-11 16:29:47', '2020-12-11 16:29:47', 0);
+INSERT INTO `category` VALUES (141, 1, '大测试', '2020-12-11 16:31:26', '2020-12-11 16:31:26', 0);
+INSERT INTO `category` VALUES (142, 1, '最近', '2020-12-14 14:08:26', '2020-12-14 14:08:26', 0);
+INSERT INTO `category` VALUES (143, 1, '最近', '2020-12-14 14:34:01', '2020-12-14 14:34:01', 0);
+INSERT INTO `category` VALUES (144, 1, 'ddd', '2020-12-18 15:12:24', '2020-12-18 15:12:37', 0);
+INSERT INTO `category` VALUES (145, 1, 'ceshi', '2020-12-18 15:12:58', '2020-12-18 15:12:58', 0);
+INSERT INTO `category` VALUES (146, 1, '日志系统', '2021-01-23 13:38:35', '2021-01-23 13:38:35', 0);
+INSERT INTO `category` VALUES (147, 1, '我测试的', '2021-01-23 14:00:20', '2021-01-23 14:00:20', 1);
+INSERT INTO `category` VALUES (148, 1, '打方法', '2021-02-01 15:54:24', '2021-02-20 15:15:52', 0);
+INSERT INTO `category` VALUES (149, 1, '撒打打发', '2021-02-03 16:22:16', '2021-02-03 16:22:16', 1);
+INSERT INTO `category` VALUES (150, 1, '阿发', '2021-02-03 16:24:29', '2021-02-03 16:24:29', 1);
+INSERT INTO `category` VALUES (151, 1, '大法师', '2021-02-03 16:29:35', '2021-02-03 16:29:35', 1);
+INSERT INTO `category` VALUES (152, 1, '代发', '2021-02-11 21:10:00', '2021-02-11 21:10:00', 1);
 
 -- ----------------------------
 -- Table structure for feedback
@@ -99,7 +117,7 @@ CREATE TABLE `feedback`  (
   `create_time` datetime(0) NULL DEFAULT NULL COMMENT '创建时间',
   `update_time` datetime(0) NULL DEFAULT NULL COMMENT '更新时间',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 19 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 30 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of feedback
@@ -123,6 +141,16 @@ INSERT INTO `feedback` VALUES (16, 1, '测试', '测试', '2020-12-05 23:14:13',
 INSERT INTO `feedback` VALUES (17, 1, '测试', '测试', '2020-12-06 20:59:55', '2020-12-06 20:59:55');
 INSERT INTO `feedback` VALUES (18, 1, '测试', '测试', '2020-12-06 21:00:56', '2020-12-06 21:00:56');
 INSERT INTO `feedback` VALUES (19, 1, '测试', '测试', '2020-12-09 14:55:58', '2020-12-09 14:55:58');
+INSERT INTO `feedback` VALUES (20, 1, '测试', '测试', '2020-12-16 09:10:51', '2020-12-16 09:10:51');
+INSERT INTO `feedback` VALUES (21, 1, '大测试', '大测试', '2020-12-16 09:11:50', '2020-12-16 09:11:50');
+INSERT INTO `feedback` VALUES (22, 1, 'dfasf ', 'dfasfs ', '2021-02-19 20:03:28', '2021-02-19 20:03:28');
+INSERT INTO `feedback` VALUES (23, 1, 'dd', 'dd', '2021-02-19 20:14:59', '2021-02-19 20:14:59');
+INSERT INTO `feedback` VALUES (24, 1, 'dd', 'dd', '2021-02-19 20:17:37', '2021-02-19 20:17:37');
+INSERT INTO `feedback` VALUES (25, 1, '发送邮件', '我发送了一个邮件', '2021-02-19 20:25:45', '2021-02-19 20:25:45');
+INSERT INTO `feedback` VALUES (26, 1, '滴答', '唉爱', '2021-02-19 20:30:04', '2021-02-19 20:30:04');
+INSERT INTO `feedback` VALUES (27, 1, '测试', '测试', '2021-02-19 20:31:24', '2021-02-19 20:31:24');
+INSERT INTO `feedback` VALUES (28, 1, '滴答', '唉爱', '2021-02-20 15:16:19', '2021-02-20 15:16:19');
+INSERT INTO `feedback` VALUES (29, 1, '滴答', '滴答', '2021-02-20 16:25:14', '2021-02-20 16:25:14');
 
 -- ----------------------------
 -- Table structure for label
@@ -136,7 +164,7 @@ CREATE TABLE `label`  (
   `update_time` datetime(0) NULL DEFAULT NULL COMMENT '更新时间',
   `run` tinyint(0) UNSIGNED NULL DEFAULT 1 COMMENT '是否还在使用',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 34 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 42 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of label
@@ -175,9 +203,24 @@ INSERT INTO `label` VALUES (34, 1, '工作', '2020-12-09 13:52:15', '2020-12-09 
 INSERT INTO `label` VALUES (35, 1, '学习', '2020-12-09 13:52:19', '2020-12-09 13:52:19', 1);
 INSERT INTO `label` VALUES (36, 1, '生活', '2020-12-09 13:52:23', '2020-12-09 13:52:23', 1);
 INSERT INTO `label` VALUES (37, 1, '理想', '2020-12-09 13:52:26', '2020-12-09 13:52:26', 1);
-INSERT INTO `label` VALUES (38, 1, '事业', '2020-12-09 13:52:32', '2020-12-09 13:52:32', 1);
-INSERT INTO `label` VALUES (39, 1, '家庭', '2020-12-09 13:52:44', '2020-12-09 13:52:44', 1);
-INSERT INTO `label` VALUES (40, 1, '测试', '2020-12-09 14:55:58', '2020-12-09 14:55:58', 1);
+INSERT INTO `label` VALUES (38, 1, '事业', '2020-12-09 13:52:32', '2020-12-09 13:52:32', 0);
+INSERT INTO `label` VALUES (39, 1, '滴答', '2020-12-09 13:52:44', '2021-02-03 16:29:58', 0);
+INSERT INTO `label` VALUES (40, 1, '测试', '2020-12-09 14:55:58', '2020-12-09 14:55:58', 0);
+INSERT INTO `label` VALUES (41, 1, '打发打发', '2021-02-19 20:31:23', '2021-02-20 15:15:58', 0);
+
+-- ----------------------------
+-- Table structure for setting
+-- ----------------------------
+DROP TABLE IF EXISTS `setting`;
+CREATE TABLE `setting`  (
+  `id` bigint(0) NOT NULL COMMENT '设置id',
+  `user_id` bigint(0) NULL DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of setting
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for task
@@ -193,12 +236,12 @@ CREATE TABLE `task`  (
   `update_time` datetime(0) NULL DEFAULT NULL COMMENT '更新时间',
   `run` tinyint(0) UNSIGNED NULL DEFAULT 1 COMMENT '是否完成',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 168 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 182 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of task
 -- ----------------------------
-INSERT INTO `task` VALUES (6, 1, 1, '早睡', '12点准时睡觉', '2020-05-04 10:35:19', '2020-12-09 14:56:00', 0);
+INSERT INTO `task` VALUES (6, 1, 1, '早睡', '12点准时睡觉', '2020-05-04 10:35:19', '2021-02-19 20:31:24', 0);
 INSERT INTO `task` VALUES (32, 1, 1, '学猫叫', '喵喵喵', '2020-05-31 19:11:05', '2020-08-25 10:43:40', 0);
 INSERT INTO `task` VALUES (33, 1, 1, '学狗叫', '汪汪汪', '2020-05-31 19:11:14', '2020-08-25 10:43:40', 0);
 INSERT INTO `task` VALUES (34, 1, 1, '学猪叫', '呃呃呃', '2020-05-31 19:11:24', '2020-08-25 10:43:40', 0);
@@ -258,12 +301,19 @@ INSERT INTO `task` VALUES (165, 1, 1, '测试', '测试', '2020-12-05 23:14:14',
 INSERT INTO `task` VALUES (166, 1, 1, '测试', '测试', '2020-12-06 20:59:56', '2020-12-09 13:47:59', 0);
 INSERT INTO `task` VALUES (167, 1, 1, '测试', '测试', '2020-12-06 21:00:57', '2020-12-09 13:48:00', 0);
 INSERT INTO `task` VALUES (168, 1, 128, '学习', '学习', '2020-12-09 13:51:32', '2020-12-09 13:53:50', 0);
-INSERT INTO `task` VALUES (169, 1, 129, '读书', '读书', '2020-12-09 13:51:42', '2020-12-09 13:51:42', 1);
-INSERT INTO `task` VALUES (170, 1, 131, '钓鱼', '钓鱼', '2020-12-09 13:51:50', '2020-12-09 13:51:50', 1);
-INSERT INTO `task` VALUES (171, 1, 131, '吃饭', '吃饭', '2020-12-09 13:51:59', '2020-12-09 13:51:59', 1);
+INSERT INTO `task` VALUES (169, 1, 129, '读书读书读书', '读书', '2020-12-09 13:51:42', '2021-02-19 20:50:13', 1);
+INSERT INTO `task` VALUES (170, 1, 131, '钓鱼', '钓鱼', '2020-12-09 13:51:50', '2021-02-19 20:29:12', 0);
+INSERT INTO `task` VALUES (171, 1, 131, '吃饭', '吃饭', '2020-12-09 13:51:59', '2021-02-19 20:29:13', 0);
 INSERT INTO `task` VALUES (172, 1, 132, '梦游', '梦游', '2020-12-09 13:52:08', '2020-12-09 13:52:08', 1);
-INSERT INTO `task` VALUES (173, 1, 129, '理想', '滴答', '2020-12-09 13:55:06', '2020-12-09 13:55:06', 1);
+INSERT INTO `task` VALUES (173, 1, 129, '理想', '滴答', '2020-12-09 13:55:06', '2021-02-03 16:30:04', 0);
 INSERT INTO `task` VALUES (174, 1, 1, '测试', '测试', '2020-12-09 14:55:59', '2020-12-09 14:55:59', 1);
+INSERT INTO `task` VALUES (175, 1, 131, '滴答', '滴答', '2021-01-11 10:10:19', '2021-01-11 10:10:19', 1);
+INSERT INTO `task` VALUES (176, 1, 132, '打发大水发', '大方', '2021-02-15 10:09:55', '2021-02-15 10:09:55', 1);
+INSERT INTO `task` VALUES (177, 1, 132, '大法师', '阿打发', '2021-02-15 10:10:04', '2021-02-15 10:10:04', 1);
+INSERT INTO `task` VALUES (178, 1, 129, '大方', '大法师', '2021-02-15 10:10:33', '2021-02-15 10:10:33', 1);
+INSERT INTO `task` VALUES (179, 1, 132, '滴答', '滴答', '2021-02-19 20:29:06', '2021-02-19 20:29:06', 1);
+INSERT INTO `task` VALUES (180, 1, 1, '测试', '测试', '2021-02-19 20:31:24', '2021-02-19 20:31:24', 1);
+INSERT INTO `task` VALUES (181, 1, 131, '滴答', '的', '2021-02-19 20:36:00', '2021-02-19 20:36:00', 1);
 
 -- ----------------------------
 -- Table structure for task_label
@@ -276,7 +326,7 @@ CREATE TABLE `task_label`  (
   `create_time` datetime(0) NULL DEFAULT NULL COMMENT '创建时间',
   `update_time` datetime(0) NULL DEFAULT NULL COMMENT '修改时间',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 199 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 223 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of task_label
@@ -471,6 +521,22 @@ INSERT INTO `task_label` VALUES (199, 173, 34, '2020-12-09 13:55:06', '2020-12-0
 INSERT INTO `task_label` VALUES (200, 173, 35, '2020-12-09 13:55:06', '2020-12-09 13:55:06');
 INSERT INTO `task_label` VALUES (201, 173, 36, '2020-12-09 13:55:06', '2020-12-09 13:55:06');
 INSERT INTO `task_label` VALUES (202, 173, 37, '2020-12-09 13:55:06', '2020-12-09 13:55:06');
+INSERT INTO `task_label` VALUES (203, 175, 34, '2021-01-11 10:10:19', '2021-01-11 10:10:19');
+INSERT INTO `task_label` VALUES (204, 175, 35, '2021-01-11 10:10:19', '2021-01-11 10:10:19');
+INSERT INTO `task_label` VALUES (205, 176, 34, '2021-02-15 10:09:55', '2021-02-15 10:09:55');
+INSERT INTO `task_label` VALUES (206, 176, 35, '2021-02-15 10:09:55', '2021-02-15 10:09:55');
+INSERT INTO `task_label` VALUES (207, 177, 35, '2021-02-15 10:10:04', '2021-02-15 10:10:04');
+INSERT INTO `task_label` VALUES (208, 177, 36, '2021-02-15 10:10:04', '2021-02-15 10:10:04');
+INSERT INTO `task_label` VALUES (209, 178, 34, '2021-02-15 10:10:33', '2021-02-15 10:10:33');
+INSERT INTO `task_label` VALUES (210, 178, 35, '2021-02-15 10:10:33', '2021-02-15 10:10:33');
+INSERT INTO `task_label` VALUES (211, 179, 34, '2021-02-19 20:29:06', '2021-02-19 20:29:06');
+INSERT INTO `task_label` VALUES (212, 179, 35, '2021-02-19 20:29:06', '2021-02-19 20:29:06');
+INSERT INTO `task_label` VALUES (215, 181, 34, '2021-02-19 20:36:00', '2021-02-19 20:36:00');
+INSERT INTO `task_label` VALUES (216, 181, 35, '2021-02-19 20:36:00', '2021-02-19 20:36:00');
+INSERT INTO `task_label` VALUES (217, 181, 36, '2021-02-19 20:36:00', '2021-02-19 20:36:00');
+INSERT INTO `task_label` VALUES (218, 181, 37, '2021-02-19 20:36:00', '2021-02-19 20:36:00');
+INSERT INTO `task_label` VALUES (221, 169, 34, '2021-02-19 20:50:13', '2021-02-19 20:50:13');
+INSERT INTO `task_label` VALUES (222, 169, 35, '2021-02-19 20:50:13', '2021-02-19 20:50:13');
 
 -- ----------------------------
 -- Table structure for user

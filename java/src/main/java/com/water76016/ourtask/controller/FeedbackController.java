@@ -45,6 +45,7 @@ public class FeedbackController {
         }
         boolean flag = feedbackService.save(feedback);
         if (flag){
+            //如果有反馈发送的话，就发送邮件提醒管理员
             mailService.sendSimpleMail(feedback);
         }
         return flag ? RestResult.success() : RestResult.error();

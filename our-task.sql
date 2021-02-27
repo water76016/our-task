@@ -11,7 +11,7 @@
  Target Server Version : 80019
  File Encoding         : 65001
 
- Date: 26/02/2021 16:44:26
+ Date: 27/02/2021 11:50:00
 */
 
 SET NAMES utf8mb4;
@@ -207,20 +207,6 @@ INSERT INTO `label` VALUES (38, 1, '事业', '2020-12-09 13:52:32', '2020-12-09 
 INSERT INTO `label` VALUES (39, 1, '滴答', '2020-12-09 13:52:44', '2021-02-03 16:29:58', 0);
 INSERT INTO `label` VALUES (40, 1, '测试', '2020-12-09 14:55:58', '2020-12-09 14:55:58', 0);
 INSERT INTO `label` VALUES (41, 1, '打发打发', '2021-02-19 20:31:23', '2021-02-20 15:15:58', 0);
-
--- ----------------------------
--- Table structure for setting
--- ----------------------------
-DROP TABLE IF EXISTS `setting`;
-CREATE TABLE `setting`  (
-  `id` bigint(0) NOT NULL COMMENT '设置id',
-  `user_id` bigint(0) NULL DEFAULT NULL,
-  PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
-
--- ----------------------------
--- Records of setting
--- ----------------------------
 
 -- ----------------------------
 -- Table structure for task
@@ -537,6 +523,29 @@ INSERT INTO `task_label` VALUES (217, 181, 36, '2021-02-19 20:36:00', '2021-02-1
 INSERT INTO `task_label` VALUES (218, 181, 37, '2021-02-19 20:36:00', '2021-02-19 20:36:00');
 INSERT INTO `task_label` VALUES (221, 169, 34, '2021-02-19 20:50:13', '2021-02-19 20:50:13');
 INSERT INTO `task_label` VALUES (222, 169, 35, '2021-02-19 20:50:13', '2021-02-19 20:50:13');
+
+-- ----------------------------
+-- Table structure for tomato_set
+-- ----------------------------
+DROP TABLE IF EXISTS `tomato_set`;
+CREATE TABLE `tomato_set`  (
+  `id` bigint(0) NOT NULL COMMENT '设置id',
+  `user_id` bigint(0) NULL DEFAULT NULL COMMENT '用户id',
+  `aim_number` int(0) NULL DEFAULT NULL COMMENT '每日目标数',
+  `start_aim` tinyint(0) NULL DEFAULT NULL COMMENT '是否开始目标',
+  `duration` int(0) NULL DEFAULT NULL COMMENT '番茄时长',
+  `short_rest_duration` int(0) NULL DEFAULT NULL COMMENT '短休息时长',
+  `long_rest_duration` int(0) NULL DEFAULT NULL COMMENT '长休息时长',
+  `long_rest_interval_number` int(0) NULL DEFAULT NULL COMMENT '长休息间隔数',
+  `auto_start_next` tinyint(0) NULL DEFAULT NULL COMMENT '是否自动开始下一个番茄',
+  `create_time` datetime(0) NULL DEFAULT NULL COMMENT '创建时间',
+  `update_time` datetime(0) NULL DEFAULT NULL COMMENT '更新时间',
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of tomato_set
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for user

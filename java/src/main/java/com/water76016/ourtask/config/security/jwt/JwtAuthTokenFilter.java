@@ -34,6 +34,11 @@ public class JwtAuthTokenFilter extends OncePerRequestFilter {
 
         String jwtToken = request.getHeader(jwtTokenUtil.getHeader());
         if(!StringUtils.isEmpty(jwtToken)){
+            //判断token是否过期，如果过期的话，请求用户重新进行登录。
+            if (jwtTokenUtil.isTokenExpired(jwtToken)){
+                //todo:这里是要进行处理的
+                return;
+            }
             String username = jwtTokenUtil.getUsernameFromToken(jwtToken);
             //如果可以正确的从JWT中提取用户信息，并且该用户未被授权
             if(username != null && SecurityContextHolder.getContext().getAuthentication() == null){

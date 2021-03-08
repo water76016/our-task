@@ -63,6 +63,7 @@ Our-Task项目是一个清单管理系统，包括前台系统使用及后台管
 |   Swagger-UI   |   文档生产工具   |          https://github.com/swagger-api/swagger-ui           |
 |      JWT       |   JWT登录支持    |                 https://github.com/jwtk/jjwt                 |
 |     Hutool     |   Java工具类库   |                https://www.hutool.cn/docs/#/                 |
+|     MySQL      |    数据库存储    |                  https://www.mysql.com/cn/                   |
 
 ### 前端技术
 

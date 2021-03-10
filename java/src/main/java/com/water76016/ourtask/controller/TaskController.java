@@ -81,11 +81,7 @@ public class TaskController {
         if (id == null){
             return RestResult.errorParams("用户id输入为空");
         }
-        Task task = taskService.getById(id);
-        if (task == null){
-            return new RestResult(ResultCode.MOVED_PERM.getCode(), "资源已被移除");
-        }
-        task.setRun(0);
+        Task task = Task.builder().id(id).run(0).build();
         taskService.updateById(task);
         return RestResult.success();
     }

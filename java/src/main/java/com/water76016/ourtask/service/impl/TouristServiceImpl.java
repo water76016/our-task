@@ -47,6 +47,7 @@ public class TouristServiceImpl implements TouristService {
         BCryptPasswordEncoder bcp = new BCryptPasswordEncoder();
         String encodePassword = bcp.encode(password);
         user.setPassword(encodePassword);
+        user.setRoles("ROLE_USER");
         boolean flag = userService.save(user);
         return flag ? RestResult.success() : RestResult.error();
     }

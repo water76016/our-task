@@ -2,47 +2,35 @@
 
 Our-Task项目想要打造一个完整的清单管理系统，用户在上面创建自己待办的清单，每个清单都可以有一个分类和多个标签，每个分类和标签下面，可以包含多个创建的清单。旨在让大家从冗杂的事情中脱离出来，用更少的时间去达成自己的目标。
 
-## 技术交流群
-
-QQ群号：729935246，群里提供电子书下载，欢迎大家来和我一起共同成长。
-
 ## 项目文档
 
 ### 预览地址
 
 项目已经部署在阿里云ECS上，可以在上面尝试使用，没有限制任何功能，大家随意就行（手机上显示不佳，建议大家使用电脑访问）。**第一次进入可能为有点慢，请大家耐心等待**。大家觉的还不错的话，欢迎给个star!
 
-[阿里云预览地址](http://www.daxingyong.cn:3000/)
+[阿里云预览地址](http://47.92.242.195:3000/#/login?redirect=%2Fdashboard)
 
 ### 项目部署文档
 
-[Our-Task部署运行需要的开发环境](https://juejin.cn/post/6904081101619200013)
-
-[ Our-Task部署运行详细文档](https://juejin.cn/post/6904085118059544590)
+[ Our-Task部署运行详细文档](https://juejin.cn/post/7224137483298537531)
 
 ### 项目Demo文档
 
-[Mybatis-Plus如何自动生成代码](https://juejin.cn/post/6904516234654679054)
+[Mybatis-Plus如何自动生成代码](https://juejin.cn/post/7224147971834085431)
 
-[SpringBoot整合Swagger2](https://juejin.cn/post/6909262661528059918)
-
-[Our-Task项目：SpringBoot整合Redis](https://juejin.cn/post/6911510555471642632)
+[SpringBoot整合Swagger2](https://juejin.cn/post/7224147971834363959)
 
 ### 项目学习文档
 
-[Our-task盘点开发过程中遇到的问题](https://juejin.cn/post/6904076042315677704)
+[Our-Task用例图和ER图设计](https://juejin.cn/post/7224149297950982201)
 
-[Our-Task用例图和ER图设计](https://juejin.cn/post/6904082047107596295)
+[接口被SpringSecurity拦截了，怎么使用PostMan调用](https://juejin.cn/post/7224132741998706746)
 
-[mybatis-plus如何自动填充字段创建时间和修改时间](https://juejin.cn/post/6904074648804294663)
+[Lombok常用注解分享](https://juejin.cn/post/7224145268738949179)
 
-[Redis各种键的典型使用场景，不清楚的都来看一下](https://juejin.cn/post/6904800718067073037/)
+[一文了解JWT](https://juejin.cn/post/7224147971833790519)
 
-[接口被SpringSecurity拦截了，怎么使用PostMan调用](https://juejin.cn/post/6906009342550474765)
-
-[Lombok常用注解分享](https://juejin.cn/post/6906340280040390663)
-
-[一文了解JWT](https://juejin.cn/post/6911192991084314637)
+[axios的用法总结](https://juejin.cn/post/7224137483298390075)
 
 ## 项目介绍
 
